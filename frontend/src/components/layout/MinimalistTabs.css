@@ -1,0 +1,102 @@
+/* =============================================================
+   MinimalistTabs.css — Vintage Medical Tab Navigation
+   Design tokens:
+     parchment   #F2EFE7   tab bar background
+     sepia200    #D9D0BC   outer border of pill container
+     sepia100    #EDE8DC   inactive tab hover tint
+     teal900     #1B4A52   active tab fill
+     teal700     #267480   active inner border accent
+     teal50      #EBF5F7   active tab hover
+     inkDark     #1C1C1A   active tab text
+     inkMid      #3D3D38   inactive tab text
+     inkLight    #6B6860   inactive tab muted
+     rule        #C8C2B4   inner dividers between tabs
+============================================================= */
+
+/* ── Outer scroll wrapper ─────────────────────────────── */
+.tabs-wrapper {
+  display: flex;
+  justify-content: center;            /* ← centered in the layout */
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0.25rem 0;                 /* breathing room above/below pill */
+}
+
+.tabs-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Pill container — curved border ──────────────────── */
+.tabs-list {
+  display: inline-flex;              /* shrink-wraps to tab content */
+  align-items: stretch;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  background-color: #F2EFE7;         /* parchment */
+  border: 1.5px solid #D9D0BC;       /* sepia200 — outer curved border */
+  border-radius: 10px;               /* curved pill shape */
+  overflow: hidden;                  /* clips child radius edges */
+}
+
+/* ── Individual Tab Button ───────────────────────────── */
+.tab-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  border: none;
+  border-right: 1px solid #D9D0BC;   /* sepia200 divider between tabs */
+
+  padding: 0.6rem 1.35rem;
+
+  font-family: 'Lato', 'Helvetica Neue', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #6B6860;                    /* inkLight — inactive muted */
+
+  cursor: pointer;
+  outline: none;
+  white-space: nowrap;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+/* Remove divider from last tab */
+.tab-item:last-child {
+  border-right: none;
+}
+
+/* Hover — inactive */
+.tab-item:hover {
+  background-color: #EDE8DC;         /* sepia100 warm tint */
+  color: #3D3D38;                    /* inkMid */
+}
+
+.tab-item:focus-visible {
+  outline: 2px solid #267480;        /* teal700 focus ring */
+  outline-offset: -3px;
+  z-index: 1;
+}
+
+/* ── Active Tab ──────────────────────────────────────── */
+.tab-item.active {
+  background-color: #1B4A52;         /* teal900 — strong filled active */
+  color: #FFFFFF;                    /* white text on teal */
+  font-weight: 700;
+
+  /* Inner border — 2px inset ring on all sides */
+  box-shadow:
+    inset 0 0 0 2px #267480;         /* teal700 inner border */
+}
+
+.tab-item.active:hover {
+  background-color: #215F69;         /* teal800 — slight lighten on hover */
+}

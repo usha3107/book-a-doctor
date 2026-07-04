@@ -1,0 +1,245 @@
+/* =============================================================
+   Navbar.css — Vintage Medical Design System
+   Color tokens (from theme/index.js):
+     cream       #FAF9F6   page background
+     parchment   #F2EFE7   header surface
+     sepia200    #D9D0BC   borders / rules
+     teal900     #1B4A52   brand fill, primary dark
+     teal700     #267480   primary / teal actions
+     teal50      #EBF5F7   teal hover tint
+     burgundy700 #7B2D42   alerts / secondary action
+     burgundy50  #F8EDF0   burgundy hover tint
+     inkDark     #1C1C1A   primary text, logout border
+     inkMid      #3D3D38   secondary text
+     inkLight    #6B6860   captions
+     rule        #C8C2B4   soft horizontal rules
+============================================================= */
+
+/* ── Outer Header Shell ─────────────────────────────────── */
+.layout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  padding: 0.875rem 2rem;
+  background-color: #F2EFE7;          /* parchment — lifted off cream page */
+  border-bottom: 1px solid #D9D0BC;   /* sepia200 — same weight as content borders */
+  box-sizing: border-box;
+}
+
+/* ── Brand Logo — filled teal block ────────────────────── */
+.brand-section {
+  display: flex;
+  align-items: center;
+}
+
+.brand-logo {
+  display: inline-block;
+  font-family: 'Lato', 'Helvetica Neue', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  color: #FFFFFF;
+  background-color: #1B4A52;          /* teal900 — solid brand fill */
+  border: 1px solid #1B4A52;
+  padding: 0.45rem 0.9rem;
+  line-height: 1;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.brand-logo:hover {
+  background-color: #215F69;          /* teal800 on hover */
+  border-color: #215F69;
+  text-decoration: none;
+}
+
+/* ── Right-Side Nav ─────────────────────────────────────── */
+.top-nav {
+  display: flex;
+  align-items: center;
+}
+
+.user-profile-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* User name — body text weight, inkMid colour */
+.user-name-display {
+  font-family: 'Lora', 'Georgia', serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #3D3D38;                      /* inkMid */
+  white-space: nowrap;
+}
+
+/* Role badge — teal accent, smaller + uppercase */
+.user-role-badge {
+  font-family: 'Lato', 'Helvetica Neue', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #267480;                      /* teal700 */
+}
+
+/* ── Alerts Button — burgundy outlined ──────────────────── */
+.notif-btn {
+  background: transparent;
+  border: 1.5px solid #7B2D42;        /* burgundy700 — alert urgency */
+  padding: 0.38rem 0.9rem;
+
+  font-family: 'Lato', 'Helvetica Neue', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  color: #7B2D42;
+
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.notif-btn:hover,
+.notif-btn:focus {
+  background-color: #F8EDF0;          /* burgundy50 — warm tint */
+  color: #4A1528;                     /* burgundy900 — darken on hover */
+  border-color: #4A1528;
+}
+
+/* ── Log Out Button — neutral ink outlined ──────────────── */
+.logout-btn {
+  background: transparent;
+  border: 1.5px solid #C8C2B4;        /* rule — low-emphasis */
+  padding: 0.38rem 0.9rem;
+
+  font-family: 'Lato', 'Helvetica Neue', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  color: #6B6860;                     /* inkLight — de-emphasised */
+
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.logout-btn:hover,
+.logout-btn:focus {
+  background-color: #EDE8DC;          /* sepia100 */
+  border-color: #1C1C1A;             /* inkDark — sharpens on hover */
+  color: #1C1C1A;
+}
+
+/* ── Notification Dropdown ──────────────────────────────── */
+.notif-dropdown {
+  position: absolute;
+  top: calc(100% + 1px);              /* flush below header bottom-border */
+  right: 2rem;
+  width: 310px;
+
+  background-color: #FAF9F6;          /* cream — lighter than parchment header */
+  border: 1px solid #D9D0BC;          /* sepia200 */
+  border-top: 2px solid #267480;      /* teal700 accent top edge — links to brand */
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.notif-dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid #D9D0BC;  /* sepia200 */
+  background-color: #EDE8DC;         /* sepia100 — slight lift for header row */
+}
+
+.notif-dropdown-header h4 {
+  margin: 0;
+  font-family: 'Lato', 'Helvetica Neue', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #1C1C1A;                    /* inkDark */
+}
+
+.mark-read-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: underline;
+  color: #267480;                    /* teal700 */
+  cursor: pointer;
+}
+
+.mark-read-btn:hover {
+  color: #1B4A52;                    /* teal900 */
+}
+
+/* Notification list */
+.notif-dropdown-list {
+  max-height: 260px;
+  overflow-y: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.notif-dropdown-item {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid #EDE8DC;  /* sepia100 — soft internal divider */
+  font-family: 'Lora', 'Georgia', serif;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #3D3D38;                    /* inkMid */
+}
+
+.notif-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+/* Unread — teal accent left rule, bold text */
+.notif-dropdown-item.unread {
+  font-weight: 700;
+  color: #1C1C1A;                    /* inkDark */
+  border-left: 3px solid #267480;   /* teal700 — unread indicator */
+  padding-left: calc(1rem - 2px);   /* compensate for border */
+}
+
+.notif-message {
+  word-break: break-word;
+}
+
+.notif-time {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: #6B6860;                    /* inkLight */
+}
+
+/* Empty / loading state */
+.notif-empty {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 0.82rem;
+  color: #6B6860;                    /* inkLight */
+}

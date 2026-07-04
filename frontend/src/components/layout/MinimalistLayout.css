@@ -1,0 +1,46 @@
+/* =============================================================
+   MinimalistLayout.css — Vintage Medical Design System
+   Color tokens (from theme/index.js):
+     cream       #FAF9F6   page background
+     parchment   #F2EFE7   header / card surfaces
+     sepia200    #D9D0BC   borders & dividers
+     sepia100    #EDE8DC   subtle fills
+     teal900     #1B4A52   strong primary
+     teal700     #267480   primary action
+     inkDark     #1C1C1A   primary text
+     inkMid      #3D3D38   secondary text
+============================================================= */
+
+/* ── Root wrapper ─────────────────────────────────────── */
+.layout-container {
+  font-family: 'Lora', 'Georgia', serif;
+  color: #3D3D38;                    /* inkMid */
+  background-color: #FAF9F6;         /* cream */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Main page body ───────────────────────────────────── */
+.layout-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 2rem 2rem;         /* matches Navbar padding-inline: 2rem */
+}
+
+/* ── Tab section row ─────────────────────────────────── */
+.tab-section {
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #D9D0BC; /* sepia200 — matches Navbar bottom border */
+}
+
+/* ── Main content area ───────────────────────────────── */
+.content-area {
+  flex-grow: 1;
+  border: 1.5px solid #D9D0BC;      /* sepia200 — warm border */
+  border-radius: 8px;               /* subtle curve matching pill tabs */
+  padding: 2rem 2.5rem;
+  background-color: #FFFFFF;        /* pure white — content lifts off cream page */
+}
